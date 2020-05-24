@@ -13,3 +13,9 @@ before_install:
   - chmod 600 ~/.ssh/videogames-webpage
   - ssh-add ~/.ssh/videogames-webpage
   - echo -e "Host 45.79.35.9\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script: bash deploy.sh
+    on:
+      branch: master
